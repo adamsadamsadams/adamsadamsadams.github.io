@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 637.96 2768">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 24.94px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #000;
+      }
+
+      .cls-1, .cls-3 {
+        font-family: BradleyHandITCTT-Bold, 'Bradley Hand';
+        font-weight: 700;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 22.29px;
+      }
+
+      .cls-3 {
+        font-size: 23.1px;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="cls-4" x="300.77" y="2694.66" width="52.28" height="27.51"/>
+    <text class="cls-2" transform="translate(307 2713.43)"><tspan x="0" y="0">&lt;&lt;&lt;</tspan></text>
+  </g>
+  <g>
+    <text class="cls-1" transform="translate(197.44 2650.66)"><tspan x="0" y="0">“polished not polished”</tspan></text>
+    <rect class="cls-4" x="192.13" y="2624" width="252.88" height="39.62"/>
+  </g>
+  <text class="cls-3" transform="translate(214.71 85.82) scale(1.49 1)"><tspan x="0" y="0">“red letter day”</tspan></text>
+</svg>

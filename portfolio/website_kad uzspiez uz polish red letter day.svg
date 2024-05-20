@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1366 3947.25">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: BradleyHandITCTT-Bold, 'Bradley Hand';
+        font-size: 13.73px;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #000;
+      }
+
+      .cls-2 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 16.2px;
+      }
+
+      .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <rect class="cls-4" x="24.5" y="70.5" width="38" height="20"/>
+  <text class="cls-2" transform="translate(29.03 84.14)"><tspan x="0" y="0">&lt;&lt;&lt;</tspan></text>
+  <rect class="cls-4" x="24.5" y="26.5" width="209" height="27"/>
+  <text class="cls-1" transform="translate(30.02 44.39) scale(1.49 1)"><tspan x="0" y="0">“polished not polished”</tspan></text>
+  <rect class="cls-3" x="1233" y="415" width="133" height="116"/>
+</svg>

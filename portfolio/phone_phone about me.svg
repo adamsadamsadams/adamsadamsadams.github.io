@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 637.91 911.81">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 29.7px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #000;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        font-family: BradleyHandITCTT-Bold, 'Bradley Hand';
+        font-size: 33.67px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(281.09 220.98)"><tspan x="0" y="0">hello.</tspan><tspan x="-51.53" y="40.4">my name is</tspan><tspan x="-35.84" y="80.81">i am from</tspan><tspan x="-71.24" y="121.21" xml:space="preserve">im    years old.</tspan><tspan x="-63.82" y="161.62" xml:space="preserve">i like to    and</tspan><tspan x="-113.15" y="202.02">i really hope that one</tspan><tspan x="-111.19" y="242.42" xml:space="preserve"> day i will be able to </tspan></text>
+  <g>
+    <rect class="cls-3" x="284.57" y="823.92" width="69.51" height="36.58"/>
+    <text class="cls-1" transform="translate(292.89 848.84)"><tspan x="0" y="0">&lt;&lt;&lt;</tspan></text>
+  </g>
+</svg>
