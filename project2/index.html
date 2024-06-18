@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game - Drawing Lines and Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        #canvasContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        #canvas {
+            border: 1px solid #000;
+            background-color: #fff;
+            margin-right: 20px;
+        }
+        #rollInfoContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #rollInfo {
+            width: 400px;
+            height: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            overflow-y: auto;
+        }
+        #buttonsContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #imagesContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .imageBox {
+            text-align: center;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease-out; /* Smooth transform animation */
+        }
+        .imageBox img {
+            width: 250px; /* Increased image size */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center image horizontally */
+        }
+    </style>
+</head>
+<body>
+    <h1>Dice Game - Drawing Lines and Images</h1>
+
+    <!-- Container for canvas and roll information -->
+    <div id="canvasContainer">
+        <canvas id="canvas" width="600" height="600"></canvas>
+        <div id="rollInfoContainer">
+            <div id="buttonsContainer">
+                <button class="buttons" onclick="rollDice()">Roll Dice</button>
+                <button class="buttons" onclick="resetCanvas()">Reset</button>
+            </div>
+            <div id="rollInfo">
+                <h2>Roll Information</h2>
+                <ul id="rollList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container for images -->
+    <div id="imagesContainer">
+        <div class="imageBox" onclick="openModal('image1v.png')">
+            <img src="image1v.png" alt="Image 1">
+            <p>Speles noteikumi</p>
+        </div>
+        <div class="imageBox" onclick="openModal('image2v.png')">
+            <img src="image2v.png" alt="Image 2">
+            <p>Speles vizualizacija</p>
+        </div>
+        <div class="imageBox" onclick="openModal('image3v.png')">
+            <img src="image3v.png" alt="Image 3">
+            <p>Spele 19 gajienos</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let startX = 300; // Starting point in the middle of the canvas
+        let startY = 300;
+        let previousRoll = null;
+        let rollCount = 0; // Counter for rolled numbers
+
+        function rollDice() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+
+            let diceRoll = Math.floor(Math.random() * 6) + 1;
+            let length = 30; // Shorter line length
+            let direction;
+            let explanation = '';
+
+            switch (diceRoll) {
+                case 1:
+                    direction = 'right';
+                    explanation = 'Rolled 1: Drew a line to the right';
+                    break;
+                case 2:
+                    direction = 'up';
+                    explanation = 'Rolled 2: Drew a line upwards';
+                    break;
+                case 3:
+                    direction = 'left';
+                    explanation = 'Rolled 3: Drew a line to the left';
+                    break;
+                case 4:
+                    direction = 'down';
+                    explanation = 'Rolled 4: Drew a line downwards';
+                    break;
+                case 5:
+                    direction = 'diagonal';
+                    explanation = 'Rolled 5: Drew a diagonal line';
+                    break;
+                case 6:
+                    direction = 'random';
+                    explanation = 'Rolled 6: Drew a line in a random direction';
+                    break;
+            }
+
+            if (previousRoll === 1 && diceRoll === 2) {
+                direction = 'right';
+                explanation = 'Continued: Drew another line to the right';
+            } else if (previousRoll === 2 && diceRoll === 3) {
+                direction = 'up';
+                explanation = 'Continued: Drew another line upwards';
+            } else if (previousRoll === 3 && diceRoll === 4) {
+                direction = 'left';
+                explanation = 'Continued: Drew another line to the left';
+            } else if (previousRoll === 4 && diceRoll === 5) {
+                direction = 'down';
+                explanation = 'Continued: Drew another line downwards';
+            } else if (previousRoll === 5 && diceRoll === 6) {
+                direction = 'diagonal';
+                explanation = 'Continued: Drew another diagonal line';
+            } else if (previousRoll === 6 && diceRoll === 1) {
+                direction = 'random';
+                explanation = 'Continued: Drew another line in a random direction';
+            }
+
+            const newPoints = drawLine(ctx, startX, startY, length, direction);
+            startX = newPoints.endX;
+            startY = newPoints.endY;
+            previousRoll = diceRoll;
+            rollCount++;
+
+            // Update current roll info
+            updateRollInfo(explanation);
+        }
+
+        function drawLine(ctx, startX, startY, length, direction) {
+            let endX, endY;
+
+            switch(direction) {
+                case 'right':
+                    endX = startX + length;
+                    endY = startY;
+                    break;
+                case 'up':
+                    endX = startX;
+                    endY = startY - length;
+                    break;
+                case 'left':
+                    endX = startX - length;
+                    endY = startY;
+                    break;
+                case 'down':
+                    endX = startX;
+                    endY = startY + length;
+                    break;
+                case 'diagonal':
+                    endX = startX + length;
+                    endY = startY + length;
+                    break;
+                default:
+                    // Random direction logic
+                    let randomDirection = Math.floor(Math.random() * 4);
+                    if (randomDirection === 0) {
+                        endX = startX + length;
+                        endY = startY;
+                    } else if (randomDirection === 1) {
+                        endX = startX;
+                        endY = startY - length;
+                    } else if (randomDirection === 2) {
+                        endX = startX - length;
+                        endY = startY;
+                    } else {
+                        endX = startX;
+                        endY = startY + length;
+                    }
+                    break;
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            return { endX, endY };
+        }
+
+        function updateRollInfo(explanation) {
+            const rollList = document.getElementById('rollList');
+            const li = document.createElement('li');
+            li.textContent = explanation;
+            rollList.appendChild(li);
+
+            // Scroll to bottom of the roll list
+            rollList.scrollTop = rollList.scrollHeight;
+        }
+
+        function resetCanvas() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            startX = 300; // Reset starting point to the middle
+            startY = 300;
+            previousRoll = null;
+            rollCount = 0;
+
+            // Clear roll info
+            const rollList = document.getElementById('rollList');
+            rollList.innerHTML = '';
+        }
+
+        function openModal(imageSrc) {
+            // Example: Implement modal or lightbox feature here
+            alert('Clicked on image: ' + imageSrc);
+        }
+    </script>
+</body>
+</html>
