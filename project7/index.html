@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        /* Basic styling for the image grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three columns in the first row */
+            gap: 20px; /* Gap between images */
+            margin-bottom: 20px; /* Bottom margin for spacing */
+            justify-items: center; /* Center items horizontally */
+            text-align: center; /* Center text */
+        }
+
+        .image-grid .image-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-grid .image-item img {
+            max-width: 100%; /* Ensure images don't exceed their natural size */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 200px; /* Set a maximum height for the images */
+            display: block; /* Remove any default inline spacing */
+        }
+
+        .image-grid .image-item div {
+            margin-top: 10px; /* Space between image and name */
+        }
+    </style>
+</head>
+<body>
+    <div class="image-grid">
+        <!-- First row with three images -->
+        <div class="image-item">
+            <img src="b1.jpg" alt="Image 1">
+            <div>glitched version. i did it with audacity. i like this version because it feels like there's only the sky and water, no houses and no boats.</div>
+        </div>
+        <div class="image-item">
+            <img src="b2.jpg" alt="Image 2">
+            <div>original picture</div>
+        </div>
+        <div class="image-item">
+            <img src="b3.jpg" alt="Image 3">
+            <div>analog photo glitch</div>
+        </div>
+    </div>
+    <div class="image-grid">
+        <!-- Second row with two images -->
+        <div class="image-item">
+            <img src="b5.jpg" alt="Image 4">
+            <div>1. I placed it under my outdoor mat while it was raining</div>
+        </div>
+        <div class="image-item">
+            <img src="b4.jpg" alt="Image 5">
+            <div>2. I placed it under the bathroom mat and found it laying like this when I returned a day later</div>
+        </div>
+    </div>
+</body>
+</html>
