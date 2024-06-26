@@ -1,22 +1,31 @@
 let shapes = [];
+let numShapes = 150;
+let shapesAdded = 0;
+let intervalId;
 
 function setup() {
   createCanvas(800, 800);
-  noLoop(); // Lai izveidotu tikai vienu kadru
   background(255);
-  generateShapes();
+  // Only generate shapes when the mouse is pressed
+  noLoop();
 }
 
 function draw() {
-  background(255); // Balts fons
+  background(255); // White background
   for (let shape of shapes) {
     shape.display();
   }
 }
 
-function generateShapes() {
-  let numShapes = 150;
-  for (let i = 0; i < numShapes; i++) {
+function mousePressed() {
+  // Start generating shapes gradually when the mouse is pressed
+  if (!intervalId) {
+    intervalId = setInterval(addShape, 100); // Add a shape every 100ms
+  }
+}
+
+function addShape() {
+  if (shapesAdded < numShapes) {
     let x = random(width);
     let y = random(height);
     let size = random(10, 100);
@@ -24,6 +33,11 @@ function generateShapes() {
     let angle = random(TWO_PI); // Random angle for rotation
     let shape = new Shape(x, y, size, shapeType, angle);
     shapes.push(shape);
+    shapesAdded++;
+    redraw();
+  } else {
+    clearInterval(intervalId); // Stop adding shapes when the target number is reached
+    intervalId = null;
   }
 }
 

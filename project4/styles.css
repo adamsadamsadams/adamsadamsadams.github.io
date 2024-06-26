@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.gif-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust the gap between GIFs as needed */
+}
+
+.gif {
+    width: 300px; /* Increased the width to make GIFs larger */
+    height: auto; /* Maintains the aspect ratio */
+}
